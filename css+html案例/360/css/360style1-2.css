@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+/*********************         top                          **********************************/
+.top{ height:45px; border-bottom:2px solid #22ac38; width:100%; min-width:1002px; padding-top:25px;}
+.top .logo{ width:150px; height:45px; background:url(../img/logo.png) no-repeat;}
+.top form{ margin-left:14px;/* padding-top:18px;*/}
+.top form input{ width:462px; height:38px; background:#eee; border:none;}
+.top .search{ width:38px; height:38px; background:url(../img/search.png) no-repeat;}
+.top div{}
+.top div ul{float:left; margin-left:36px;}
+.top div ul li{ width:89px; height:26px; background:url(../img/movie.png) no-repeat left center; line-height:26px; font-size:14px; float:left; margin-left:12px;}
+.top div ul{}
+.top div ul li{}
+.top div ul li a{ color:green; padding-left:32px;}
+
+
+/*****************************************    nav               ***************************/
+.nav{ padding:14px 0;}
+.nav .mainnav{ font-size:16px;}
+.nav .mainnav li{ float:left;/* margin:0 23px 0 3px;*/ padding:0 22px 0 3px;}
+.nav .mainnav li a{ color:#666;}
+.nav .subnav{}
+.nav .subnav li{ font-size:14px; float:left; width:28px; height:14px; margin-left:20px; line-height:14px;}
+.nav .subnav li a{color:#666;}
+/************************************                 banner             *******************/
+.banner{ width:100%; min-width:1002px; height:482px; background:url(../img/banner.jpg) no-repeat top center; position:relative;}
+.banner h2{ font-size:34px; color:#fff;left:19px; padding-top:270px; margin-left:19px;}
+.banner p{ font-size:16px; color:#fff;left:19px; padding-top:27px; margin-left:19px;}
+.banner ul{}
+.banner ul li{  float:left; margin-left:17px;width:97px; height:55px;  position:relative;}
+.banner ul li img{width:97px; height:55px;}
+.banner ul li i{ width:97px; height:55px; background:#000; position:absolute; top:0;left:0; display:block; opacity:0.6; filter:alpha( opacity=60)}
+.banner ul li:hover img{ border:3px solid green;}
+.banner ul li:hover i{ display:none;}
+                 

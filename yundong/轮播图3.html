@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+        #box ul{ position:absolute; left:0; top:0; width:1920px;}
+        #box{ overflow:hidden; width:480px; height:150px; position:relative; margin:100px auto; border:1px solid #000;}
+        #box ul li{ float:left; width:480px; height:150px; text-align:center;  line-height:150px; font-size:60px; color:#fff; font-family:"微软雅黑";}
+        #box ol{ position:absolute; right:10px; bottom:5px;}
+        #box ol li{ cursor:pointer; font-size:16px; font-family:"微软雅黑"; text-align:center; line-height:20px; float:left; width:20px; height:20px; background:silver; margin:5px;}
+        #box ol li.now{ background:yellowgreen; color:#ccc;}
+    </style>
+    <script src="move7.js"></script>
+    <script>
+        window.onload=function(){
+            var oBox=document.getElementById('box');
+            var oUl=oBox.children[0];
+            var oOl=oBox.children[1];
+            var aBtn=oOl.children;
+
+            for(var i=0;i<aBtn.length;i++){
+                ;(function(index){
+                    aBtn[i].onclick=function(){
+                        for(var i=0;i<aBtn.length;i++){
+                            aBtn[i].className='';
+                        }
+                        aBtn[index].className='now';
+                        console.log(oBox.offsetHeight);
+                        // move2(oUl,{left:-index*(oBox.offsetWidth-2)});
+                       oUl.style.left=-index*(oBox.offsetWidth-2)+'px';
+                    };
+                })(i);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li style="background:lightcoral">1</li>
+            <li style="background:slategrey">2</li>
+            <li style="background:seagreen">3</li>
+            <li style="background:salmon">4</li>
+        </ul>
+        <ol>
+            <li class="now">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+        #box{ width:200px; height:200px; border:1px solid #000; position:absolute; left:200px; top:100px;}
+        #Con{ display:none; cursor:all-scroll; position:absolute; left:0; top:0; width:80px; height:80px; background:slateblue; opacity:.5; filter:alpha(opacity:50); z-index:2;}
+        #box img{ position:absolute; width:200px; height:200px;}
+        #cont{ display:none; position:absolute; top:100px; width:300px; height:300px; border:1px solid #000; left:401px; overflow:hidden;}
+        #cont img{ width:500px; height:500px; position:absolute; left:0; top:0;}
+    </style>
+    <script>
+        window.onload=function(){
+            var oCon=document.getElementById('Con');
+            var oBox=document.getElementById('box');
+            var oCont=document.getElementById('cont');
+            var oImg=oCont.children[0];
+
+            oBox.onmouseover=function(){
+                oCon.style.display='block';
+                oCont.style.display='block';
+            };
+            oBox.onmouseout=function(){
+                oCon.style.display='none';
+                oCont.style.display='none';
+            };
+            oBox.onmousemove=function(ev){
+                var oEvent=ev||event;
+
+                var l=oEvent.clientX-oBox.offsetLeft-oCon.offsetWidth/2;
+                var t=oEvent.clientY-oBox.offsetTop-oCon.offsetHeight/2;
+
+                if(l<=0)l=0;
+                if(t<=0)t=0;
+                if(l>=oBox.offsetWidth-oCon.offsetWidth)l=oBox.offsetWidth-oCon.offsetWidth;
+                if(t>=oBox.offsetHeight-oCon.offsetHeight)t=oBox.offsetHeight-oCon.offsetHeight;
+                oCon.style.left=l+'px';
+                oCon.style.top=t+'px';
+
+                var scaleX=l/(oBox.offsetWidth-oCon.offsetWidth);
+                var scaleY=t/(oBox.offsetHeight-oCon.offsetHeight);
+                // oCon.style.left=l+'px';
+                // oCon.style.top=t+'px';
+
+                oImg.style.left=-scaleX*(oImg.offsetWidth-oCont.offsetWidth)+'px';
+                oImg.style.top=-scaleY*(oImg.offsetHeight-oCont.offsetHeight)+'px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <span id="Con"></span>
+        <img src="iphonesE.png" alt="iphonesE.png">
+    </div>
+    <div id="cont">
+        <img src="iphonesE.png" alt="iphonesE.png">
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

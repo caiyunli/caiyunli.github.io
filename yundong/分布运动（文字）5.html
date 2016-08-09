@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		body,html{ background:#000; color:#fff; font-size:40px; font-family:"微软雅黑";}
+		span{ opacity:0;}
+	</style>
+	<script src="startMove.js"></script>
+	<script>
+		window.onload=function(){
+			var aDiv=document.body.children;
+			var timer=null;
+			var str='习近平关于深化军队改革论述摘编印发习近平三次考察东北都说了啥回访黑龙江治国理政进行时关于营改增 总理今年以来去过哪里说了什么张德江会见泰国立法议会主席刘奇葆率代表团访问澳大利亚新三板分层方案出炉会否冲击A股资金流量新三板投资吸引力受限制投资者被拦截分层带来长期利好'
+
+			for(var i=0;i<str.length;i++){
+				var oSpan=document.createElement('span');
+				oSpan.innerHTML=str.charAt(i);
+				document.body.appendChild(oSpan);
+			}
+
+			var i=0;
+			var aSpan=document.body.children;
+			timer=setInterval(function(){
+				move(aSpan[i],{opacity:1},{time:300,type:'ease-out'});
+				i++;
+				if(i==str.length)clearInterval(timer);
+			},100);
+
+
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
