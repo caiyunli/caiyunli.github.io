@@ -1,14 +1,14 @@
-@charset "utf-8";
-/* CSS Document */
 *{ margin:0; padding:0;}
-li{ list-style:none}
-a{ text-decoration:none;}
-h1,h2,h3,h4,h5,h6,p,span,b{ font-size:12px; font-weight:normal;}
-i{ font-style:normal;}
-.clearfix:after{ content:""; display:block; clear:both;}
-.clearfix{ zoom:1;}
-.fl{ float:left;}
-.fr{ float:right;}
-.w{ width:960px; margin:0 auto;}
-IE{ border:none;}
-img{}
+body{color: #252525; font-family: "宋体"}
+a{ text-decoration:none; color:#252525;}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight: normal;}
+i,em{font-style: normal;}
+.clearfix:after{content:""; display:block; clear:both;}
+.clearfix{zoom:1;}
+li{ list-style:none;}
+.w{width: 100%;min-width: 960px;}
+.mw{width: 960px; margin: 0 auto;}
+.fl{float: left;}
+.fr{ float: right; }
+input,select{outline: none; border: none;}
+img{vertical-align: top; border: none}

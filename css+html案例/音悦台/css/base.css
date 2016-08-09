@@ -1,0 +1,16 @@
+
+*{ margin:0; padding:0;}
+a{ text-decoration:none; color: #666;}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight: normal;}
+i,em{font-style: normal;}
+.clearfix:after{content:""; display:block; clear:both;}
+.clearfix{zoom:1;}
+li{ list-style:none;}
+.w-b{ width:1007px; margin: 0 auto;}
+.w-s{ width:970px; margin: 0 auto;}
+.w{width: 100%;min-width: 962px;}
+.vw{width: 962px;margin:0 auto;}
+.fl{float: left;}
+.fr{ float: right; }
+input{outline: none; border: none;}
+img{vertical-align: top; border: none}

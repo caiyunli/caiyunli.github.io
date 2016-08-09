@@ -2,7 +2,7 @@
 /* CSS Document */
 *{ margin:0; padding:0;}
 li{ list-style:none}
-a{ text-decoration:none;}
+a{ text-decoration:none; color:#222; }
 h1,h2,h3,h4,h5,h6,p,span{ font-size:12px; font-weight:normal;}
 .clearfix:after{ content:""; display:block; clear:both;}
 .clearfix{ zoom:1;}

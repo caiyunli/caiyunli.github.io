@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>雾里看花</title>
+<style>
+	*{ padding:0; margin:0;}
+	html,body{ height:100%;}
+	div{
+		height:100%; 
+		background:url(img/2-1.jpg); 
+		background-size:cover;
+		-webkit-mask:url(img/4.png) no-repeat;
+	}
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.querySelector('div');
+		
+		document.onmousemove=function(ev){
+			var oEv=ev||event;
+			
+			var l=oEv.clientX-150;
+			var t=oEv.clientY-150;	
+			
+			oBox.style.WebkitMaskPosition=l+'px '+t+'px';
+		}
+		
+	};
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

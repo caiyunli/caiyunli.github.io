@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+        #box{ width:480px; height:250px; position:relative; margin:100px auto; overflow:hidden;}
+        #box ul{ position:absolute; left:0; width:2400px;}
+        #box ul li{ width:480px; height:250px; float:left; text-align:center; line-height:250px; font-size:50px; font-family:"微软雅黑";}
+        #box ol{width:450px; position:absolute; bottom:10px; right:16px;}
+        #box ol li{ width:80px; height:10px; background:aquamarine; float:left; margin:5px;}
+        #box ol li span{ display:block; width:0px; height:10px; background:plum;}
+    </style>
+    <script src="startMove.js"></script>
+    <script>
+        window.onload=function(){
+            var oBox=document.getElementById('box');
+            var oUl=oBox.children[0];
+            var oOl=oBox.children[1];
+            var aBtn=oOl.children;
+            var aLi=oUl.children;
+            var aSpan=oOl.getElementsByTagName('span');
+
+            // for(var i=0;i<aLi.length;i++){
+            //     aLi[i].innerHTML=i;
+            // }
+            var iNow=0;
+
+            function next(){
+                for(var i=0;i<aSpan.length;i++){
+                    aSpan[i].style.width=0;
+                }
+                move(aSpan[iNow],{width:80},{end:function(){
+                    iNow++;
+                    if(iNow==aLi.length)iNow=0;
+                    move(oUl,{left:-aLi[iNow].offsetWidth*iNow},{end:next});
+                }});
+            }
+            next();
+//            move(aSpan[0],{width:80},{end:function(){
+//                move(oUl,{left:-aLi[0].offsetWidth*1},{end:function(){
+//                    for(var i=0;i<aSpan.length;i++){
+//                        aSpan[i].style.width=0;
+//                    }
+//                    move(aSpan[1],{width:80},{end:function(){
+//                        move(oUl,{left:-aLi[0].offsetWidth*2});
+//                    }});
+//                }});
+//            }})
+
+
+        }
+    </script>
+</head>
+<body style="background: rgba(255, 0, 0, 0.1);">
+<div id="box">
+    <ul>
+        <li style="background:url(img/pc-01.jpg);"></li>
+        <li style="background:url(img/pc-02.jpg);"></li>
+        <li style="background:url(img/pc-03.jpg);"></li>
+        <li style="background:url(img/pc-04.jpg);"></li>
+        <li style="background:url(img/pc-05.jpg);"></li>
+    </ul>
+    <ol>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+    </ol>
+    
+</div>
+</body>
+</html>

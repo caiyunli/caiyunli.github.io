@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>立体</title>
+<style>
+	*{ padding:0; margin:0;}
+	.box{ width:400px; height:400px; margin:150px auto; transform:perspective(1200px)  rotateY(-60deg) rotateX(30deg); transform-style:preserve-3d; position:relative;}
+	.box div{ width:100%; height:100%; position:absolute; top:0; left:0; border-radius:50%;}
+	.front{ background:yellow; transform:  translateZ(150px);}
+	.back{ background:blue; transform: translateZ(-150px);}
+	.right{ background:#933; transform: translateX(150px) rotateY(90deg);}
+	.left{ background:#6F9; transform: translateX(-150px) rotateY(90deg);}
+	.top{ background:#39C; transform: translateY(-150px) rotateX(90deg);}
+	.bottom{ background:#f40; transform: translateY(150px) rotateX(-90deg);}
+	
+	
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.querySelector('.box');
+		
+		var x=-60;
+		var y=30;
+		document.onmousedown=function(ev){
+			var disX=ev.clientX-x;
+			var disY=ev.clientY-y;
+			document.onmousemove=function(ev){
+				x=ev.clientX-disX;
+				y=ev.clientY-disY;	
+				
+				oBox.style.WebkitTransform='perspective(1200px)  rotateY('+x+'deg) rotateX(-'+y+'deg)';
+			};
+			
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;	
+			};
+			
+			return false;
+			
+				
+		}
+		
+	};
+</script>
+</head>
+
+<body>
+	<div class="box">
+    	<div class="front"></div>
+        <div class="back"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

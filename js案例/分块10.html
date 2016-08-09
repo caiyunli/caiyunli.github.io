@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+        #box{ width:700px; height:400px; position:relative; margin:200px auto; background:url(img/0.jpg) no-repeat;}
+        #box span{ width:100px; height:100px; background:url(img/1.jpg) no-repeat; position:absolute; opacity:0; filter:alpha(opacity:0);}
+    </style>
+    <script src="Move.js">
+    </script>
+    <script>
+        window.onload=function(){
+            var oBox=document.getElementById('box');
+            var oW=oBox.offsetWidth;
+            var timer=null;
+            var bSys=true;
+            var R=4;
+            var C=7;
+            for(var r=0;r<R;r++){
+                for(var c=0;c<C;c++){
+                   var oSpan=document.createElement('span');
+                   oSpan.style.width=oBox.offsetWidth/C+'px';
+                   oSpan.style.height=oBox.offsetHeight/R+'px';
+                    oBox.appendChild(oSpan);
+                   oSpan.style.top=r*oSpan.offsetHeight+'px';
+                   oSpan.style.left=c*oSpan.offsetWidth+'px';
+
+                   oSpan.style.backgroundPosition='-'+c*oSpan.offsetWidth+'px -'+r*oSpan.offsetHeight+'px';
+
+                   oSpan.c=c;
+                   oSpan.r=r;
+                }
+            }
+            var aSpan=oBox.children;
+            var iNow=0;
+            document.onclick=function(){
+                if(bSys){
+                    var i=0;
+                    iNow++;
+                    console.log(iNow);
+                    for(var i=0;i<aSpan.length;i++){
+                        ;(function(index){
+                            setTimeout(function(){
+                                aSpan[index].style.opacity=0;
+                                aSpan[index].style.filter='alpha(opacity:0)';
+                                aSpan[index].style.backgroundImage='url(img/'+iNow%3+'.jpg)';
+                                move(aSpan[index],{opacity:1});
+
+                                if(index==27)bSys=true;
+                            },1000*Math.random());
+
+                        })(i);
+
+
+                    }
+                }
+                bSys=false;
+            }
+
+        }
+    </script>
+</head>
+<body style="background: rgba(255, 214, 0, 0.17);">
+    <div id="box">
+    </div>
+</body>
+</html>
